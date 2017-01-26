@@ -5,7 +5,11 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
-
+	<p>
+		<% Country.all.each do |c| %>
+		  <%= c.name %>
+		<% end %>
+	</p>
   <p>
     <%= f.submit %>
   </p>
