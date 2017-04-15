@@ -6,8 +6,8 @@
     <%= f.text_field :name %>
   </p>
 	<p>
-		<% Country.all.each do |c| %>
-		  <%= c.name %>
+		<% Contestant.all.each do |c| %>
+		  <%= c.title %>
 		<% end %>
 	</p>
   <p>
