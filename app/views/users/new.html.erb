@@ -1,8 +1,12 @@
-<h1>hello</h1>
+<h1>Skriv in ditt namn och låtarna!</h1>
 
 <%= form_for @user do |f| %>
   <p>
+		Ditt namn *
+	</p>
     <%= f.text_field :name %>
-  </p>
-	<%= f.submit %>
+	<p>
+		Placering #1
+	</p>
+	<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
 <% end %>
