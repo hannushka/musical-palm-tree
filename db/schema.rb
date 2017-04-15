@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20170415163948) do
 
   create_table "bets", force: :cascade do |t|
+    t.string   "name"
     t.integer  "user_id"
     t.integer  "contest_id"
     t.datetime "created_at", null: false
@@ -52,11 +53,5 @@ ActiveRecord::Schema.define(version: 20170415163948) do
 
   add_index "placements", ["bet_id"], name: "index_placements_on_bet_id"
   add_index "placements", ["contestant_id"], name: "index_placements_on_contestant_id"
-
-  create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
 end
