@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  start_nbr: 1
+  position: 1
   country: MyString
   title: MyString
+  contest_id: 
 
 two:
+  start_nbr: 1
+  position: 1
   country: MyString
   title: MyString
+  contest_id: 

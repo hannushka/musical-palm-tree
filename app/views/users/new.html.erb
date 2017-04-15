@@ -2,15 +2,7 @@
 
 <%= form_for @user do |f| %>
   <p>
-    <%= f.label :name %><br>
     <%= f.text_field :name %>
   </p>
-	<p>
-		<% Contestant.all.each do |c| %>
-		  <%= c.title %>
-		<% end %>
-	</p>
-  <p>
-    <%= f.submit %>
-  </p>
+	<%= f.submit %>
 <% end %>
