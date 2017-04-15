@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415155155) do
+ActiveRecord::Schema.define(version: 20170415163026) do
+
+  create_table "bets", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "contest_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "bets", ["contest_id"], name: "index_bets_on_contest_id"
+  add_index "bets", ["user_id"], name: "index_bets_on_user_id"
 
   create_table "contestants", force: :cascade do |t|
     t.integer  "start_nbr"
@@ -23,7 +33,6 @@ ActiveRecord::Schema.define(version: 20170415155155) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "contestants", ["contest_id", "created_at"], name: "index_contestants_on_contest_id_and_created_at"
   add_index "contestants", ["contest_id"], name: "index_contestants_on_contest_id"
 
   create_table "contests", force: :cascade do |t|
