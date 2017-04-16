@@ -1,12 +1,15 @@
 <h1>Skriv in ditt namn och låtarna!</h1>
 
 <%= form_for @bet do |f| %>
-  <p>
-		Ditt namn *
-	</p>
-    <%= f.text_field :name %>
-	<p>
-		Placering #1
-	</p>
+  <p>Ditt namn *	</p>
+	<p><%= f.text_field :name %></p>
+	<% counter = 1 %>
+	<%= f.fields_for :placements do |b| %>
+		<p>Placering #<%= counter %></p>
+		<p>
+			<%= b.collection_select :contestant_id, Contestant.all, :id, :title, { include_blank: "Välj låt" } %>
+		</p>
+		<% counter += 1 %>
+  <% end %>
 	<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
 <% end %>
