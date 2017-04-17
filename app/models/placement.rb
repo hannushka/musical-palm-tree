@@ -7,7 +7,9 @@ class Placement < ActiveRecord::Base
 	def save(*args)
     super
 		rescue ActiveRecord::RecordNotUnique
-    	bet.errors[:base] << "Du har valt #{contestant.title} flera gånger."
+    	bet.errors[:base] << "Du har valt #{contestant.title} flera gånger.
+														Låten förekommer för andra gången på position
+														#{position}."
     	false
   end
 end
