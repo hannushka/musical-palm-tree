@@ -1,15 +1,13 @@
 class Placement < ActiveRecord::Base
   belongs_to :bet, inverse_of: :placements
   belongs_to :contestant, inverse_of: :placements
-	validates :contestant, presence: true
-	validates_numericality_of :position, only_integer: true, message: 'Error.'
+	validates_presence_of :contestant_id, message: "Du får inte skicka in tomma placeringar."
 
 	def save(*args)
     super
 		rescue ActiveRecord::RecordNotUnique
-    	bet.errors[:base] << "Du har valt #{contestant.title} flera gånger.
-														Låten förekommer för andra gången på position
-														#{position}."
+    	bet.errors[:base] << "Du har valt #{contestant.complete_title} flera gånger."
+			errors.add(:contestant_id, "Du har valt #{contestant.complete_title} flera gånger.")
     	false
   end
 end

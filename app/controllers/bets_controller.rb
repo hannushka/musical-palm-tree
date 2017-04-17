@@ -15,9 +15,9 @@ class BetsController < ApplicationController
     else
 			string = ""
 			@bet.errors.each do |attribute, msg|
-      	 string = string + "\n"+ msg
+      	 string = string + " "+ msg
     	end
-			flash[:danger] = string.to_s
+			flash.now[:danger]  = string.to_s
       render 'new'
     end
 	end
