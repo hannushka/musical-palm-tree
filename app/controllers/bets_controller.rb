@@ -12,6 +12,7 @@ class BetsController < ApplicationController
     if @bet.save
 				flash[:success] = "Din tippning har skickats in."
         redirect_to @bet
+				return
     else
 			string = ""
 			@bet.errors.each do |attribute, msg|
