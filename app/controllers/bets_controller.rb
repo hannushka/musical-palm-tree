@@ -15,7 +15,7 @@ class BetsController < ApplicationController
     else
 			string = ""
 			@bet.errors.each do |attribute, msg|
-      	 string = string + " "+ msg
+      	 string = string + "\n"+ msg
     	end
 			flash[:danger] = string.to_s
       render 'new'
@@ -28,7 +28,7 @@ class BetsController < ApplicationController
 
 	private
 	  def bet_params
-	    params.require(:bet).permit(:name, placements_attributes: [:position, :contestant_id])
+	    params.require(:bet).permit(:name, placements_attributes: [:contestant_id, :position])
 end
 
 end

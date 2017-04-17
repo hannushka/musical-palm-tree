@@ -3,12 +3,10 @@
 <p>Ditt svar har sparats.</p>
 <p>Om du vill ändra ditt svar så klicka på tillbaka.</p>
 
-<% counter = 1 %>
 <% @bet.placements.each do |p| %>
 	<p>
-		Placering #<%= counter %>
+		Placering #<%= p.position %>
 		<%= p.contestant.title %>
 		<%= p.contestant.country %>
 	</p>
-	<% counter += 1 %>
 <% end %>

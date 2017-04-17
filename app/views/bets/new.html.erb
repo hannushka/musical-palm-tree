@@ -4,8 +4,8 @@
   <p>Ditt namn *	</p>
 	<p><%= f.text_field :name, class: 'form-control' %></p>
 	<%= f.fields_for :placements do |b| %>
+	<%= b.hidden_field :position, value: b.object.position %>
 		<p>Placering #<%= b.object.position %></p>
-		<%= hidden_field_tag :position, b.object.position %>
 		<p>
 			<%= b.collection_select :contestant_id, Contestant.all, :id, :title,{ include_blank: "Välj låt" },
 			 		{ class: 'form-control' } %>

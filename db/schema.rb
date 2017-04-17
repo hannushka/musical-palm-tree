@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20170417110624) do
   end
 
   add_index "bets", ["contest_id"], name: "index_bets_on_contest_id"
+  add_index "bets", ["name"], name: "index_bets_on_name", unique: true
 
   create_table "contestants", force: :cascade do |t|
     t.integer  "start_nbr"
