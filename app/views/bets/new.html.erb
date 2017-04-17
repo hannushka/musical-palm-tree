@@ -9,7 +9,7 @@
 		<%= b.hidden_field :position, value: b.object.position %>
 			<p>Placering #<%= b.object.position %></p>
 			<p>
-				<%= b.collection_select :contestant_id, Contestant.all, :id, :title,{ include_blank: "Välj låt" },
+				<%= b.collection_select :contestant_id, Contestant.all, :id, :song ,{ include_blank: "Välj låt" },
 				 		{ class: 'form-control' } %>
 			</p>
 	  <% end %>
