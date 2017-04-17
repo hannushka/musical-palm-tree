@@ -20,4 +20,7 @@
 	placering flera gånger.
 </p>
 
-<%= link_to "Nog nu! Ta mig till tävlingen!", new_bet_path, class: "btn btn-lg btn-primary" %>
+<% if Contest.order("created_at").last.nil? || Contest.order("created_at").last.completed %>
+<% else %>
+	<%= link_to "Nog nu! Ta mig till tävlingen!", new_bet_path, class: "btn btn-lg btn-primary" %>
+<% end %>

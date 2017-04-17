@@ -4,10 +4,15 @@ class Placement < ActiveRecord::Base
 	validates_presence_of :contestant_id, message: "Du får inte skicka in tomma placeringar."
 
 	def save(*args)
-    super
+		begin
+			super
 		rescue ActiveRecord::RecordNotUnique
-    	bet.errors[:base] << "Du har valt #{contestant.complete_title} flera gånger."
+			if Rails.env.production?
+				ActiveRecord::Base.connection.execute 'ROLLBACK'
+			end
+			bet.errors[:base] << "Du har valt #{contestant.complete_title} flera gånger."
 			errors.add(:contestant_id, "Du har valt #{contestant.complete_title} flera gånger.")
     	false
+		end
   end
 end
