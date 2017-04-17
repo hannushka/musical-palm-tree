@@ -26,9 +26,28 @@ class BetsController < ApplicationController
 		@bet = Bet.find(params[:id])
 	end
 
+  def edit
+    @bet = Bet.find(params[:id])
+  end
+
+	 def update
+	 @bet = Bet.find(params[:id])
+    if @bet.update_attributes(bet_params)
+				flash[:success] = "Din tippning har skickats in."
+				redirect_to @bet
+    else
+			string = ""
+			@bet.errors.each do |attribute, msg|
+      	 string = string + " "+ msg
+    	end
+			flash.now[:danger]  = string.to_s
+      render 'edit'
+    end
+  end
+
 	private
 	  def bet_params
-	    params.require(:bet).permit(:name, placements_attributes: [:contestant_id, :position])
+	    params.require(:bet).permit(:name, placements_attributes: [:contestant_id, :position, :id])
 end
 
 end

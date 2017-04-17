@@ -1,0 +1,14 @@
+<h1>Skriv in ditt namn och låtarna!</h1>
+<%= form_for @bet do |f| %>
+  <p>Ditt namn *	</p>
+	<p><%= f.text_field :name, class: 'form-control' %></p>
+	<%= f.fields_for :placements do |b| %>
+	<%= b.hidden_field :position, value: b.object.position %>
+		<p>Placering #<%= b.object.position %></p>
+		<p>
+			<%= b.collection_select :contestant_id, Contestant.all, :id, :complete_title ,{ include_blank: "Välj låt" },
+			 		{ class: 'form-control' } %>
+		</p>
+  <% end %>
+	<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
+<% end %>
