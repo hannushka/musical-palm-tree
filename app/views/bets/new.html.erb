@@ -2,12 +2,13 @@
 
 <%= form_for @bet do |f| %>
   <p>Ditt namn *	</p>
-	<p><%= f.text_field :name %></p>
+	<p><%= f.text_field :name, class: 'form-control' %></p>
 	<% counter = 1 %>
 	<%= f.fields_for :placements do |b| %>
 		<p>Placering #<%= counter %></p>
 		<p>
-			<%= b.collection_select :contestant_id, Contestant.all, :id, :title, { include_blank: "Välj låt" } %>
+			<%= b.collection_select :contestant_id, Contestant.all, :id, :title, { include_blank: "Välj låt" },
+			 		{ class: 'form-control' } %>
 		</p>
 		<% counter += 1 %>
   <% end %>

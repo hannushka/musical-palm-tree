@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170415163948) do
+ActiveRecord::Schema.define(version: 20170417110624) do
 
   create_table "bets", force: :cascade do |t|
     t.string   "name"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20170415163948) do
     t.datetime "updated_at",    null: false
   end
 
+  add_index "placements", ["bet_id", "contestant_id"], name: "index_placements_on_bet_id_and_contestant_id", unique: true
   add_index "placements", ["bet_id"], name: "index_placements_on_bet_id"
   add_index "placements", ["contestant_id"], name: "index_placements_on_contestant_id"
 

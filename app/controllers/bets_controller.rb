@@ -9,12 +9,12 @@ class BetsController < ApplicationController
 
 	def create
 		@bet = Contest.order("created_at").last.bets.new(bet_params)
-    if @bet.save
+    if @bet.save!
 				flash[:success] = "Din tippning har skickats in."
         redirect_to @bet
     else
-			flash[:error] = "Fel i formuläret."
-      redirect_to new_bet_path
+			flash[:danger] = @bet.errors.full_messages.first
+      render 'new'
     end
 	end
 
