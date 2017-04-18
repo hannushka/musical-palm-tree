@@ -9,18 +9,18 @@ class BetsController < ApplicationController
 
 	def create
 		@bet = Contest.order("created_at").last.bets.new(bet_params)
-    if @bet.save
-				flash[:success] = "Din tippning har skickats in."
-        redirect_to @bet
-				return
-    else
-			string = ""
-			@bet.errors.each do |attribute, msg|
-      	 string = string + " "+ msg
-    	end
-			flash.now[:danger]  = string.to_s
-      render 'new'
-    end
+	    if @bet.save
+					flash[:success] = "Din tippning har skickats in."
+	        redirect_to @bet
+					return
+	    else
+				string = ""
+				@bet.errors.each do |attribute, msg|
+	      	 string = string + " "+ msg
+	    	end
+				flash.now[:danger]  = string.to_s
+	      render 'new'
+	    end
 	end
 
 	def show
@@ -36,6 +36,7 @@ class BetsController < ApplicationController
     if @bet.update_attributes(bet_params)
 				flash[:success] = "Din tippning har skickats in."
 				redirect_to @bet
+				return
     else
 			string = ""
 			@bet.errors.each do |attribute, msg|

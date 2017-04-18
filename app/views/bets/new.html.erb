@@ -1,5 +1,5 @@
 <h1>Skriv in ditt namn och låtarna!</h1>
-<%= form_for @bet do |f| %>
+<%= form_for @bet, as: :bet, url: bets_path, html: {multipart: true, method: :post} do |f| -%>
   <p>Ditt namn *	</p>
 	<p><%= f.text_field :name, class: 'form-control' %></p>
 	<%= f.fields_for :placements do |b| %>
