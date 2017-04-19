@@ -1,14 +1,25 @@
-<h1>Skriv in ditt namn och låtarna!</h1>
-<%= form_for @bet, as: :bet, url: bets_path, html: {multipart: true, method: :post} do |f| -%>
-  <p>Ditt namn *	</p>
-	<p><%= f.text_field :name, class: 'form-control' %></p>
-	<%= f.fields_for :placements do |b| %>
-	<%= b.hidden_field :position, value: b.object.position %>
-		<p>Placering #<%= b.object.position %></p>
-		<p>
-			<%= b.collection_select :contestant_id, Contestant.all, :id, :complete_title ,{ include_blank: "Välj låt" },
-			 		{ class: 'form-control' } %>
-		</p>
-  <% end %>
-	<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
-<% end %>
+<div class="container-fluid">
+	<div class="row">
+		<h1>Skriv in ditt namn och låtarna!</h1>
+	</div>
+
+	<%= form_for @bet, as: :bet, url: bets_path, html: {class: 'form-horizontal', multipart: true, method: :post} do |f| -%>
+		<div class="form-group row">
+			<p>Ditt namn *	</p>
+			<p><%= f.text_field :name, class: 'form-control' %></p>
+		</div>
+		<%= f.fields_for :placements do |b| %>
+		<%= b.hidden_field :position, value: b.object.position %>
+			<div class="form-group row">
+				<p>Placering #<%= b.object.position %></p>
+				<p>
+					<%= b.collection_select :contestant_id, Contestant.all, :id, :complete_title ,{ include_blank: "Välj låt" },
+						 	{ class: 'form-control' } %>
+				</p>
+			</div>
+	  <% end %>
+		<div class="form-group row">
+	  	<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
+		</div>
+	<% end %>
+</div>
