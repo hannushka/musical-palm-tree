@@ -32,24 +32,30 @@ class BetsController < ApplicationController
   end
 
 	 def update
-	 @bet = Bet.find(params[:id])
-    if @bet.update_attributes(bet_params)
-				flash[:success] = "Din tippning har skickats in."
-				redirect_to @bet
-				return
-    else
-			string = ""
-			@bet.errors.each do |attribute, msg|
-      	 string = string + " "+ msg
-    	end
-			flash.now[:danger]  = string.to_s
-      render 'edit'
-    end
-  end
+		 @bet = Bet.find(params[:id])
+		 was_saved = false
+		 ActiveRecord::Base.transaction do
+			 @bet.placements.update_all(contestant_id: nil)
+			 @bet.assign_attributes(bet_params)
+			 was_saved = @bet.save
+		 end
+		 if(was_saved)
+			 flash[:success] = "Din tippning har skickats in."
+			 redirect_to @bet
+			 return
+		 else
+			 string = ""
+			 @bet.errors.each do |attribute, msg|
+					string = string + " "+ msg
+			 end
+			 flash.now[:danger]  = string.to_s
+			 render 'edit'
+		 end
+	 end
 
 	private
 	  def bet_params
 	    params.require(:bet).permit(:name, placements_attributes: [:contestant_id, :position, :id])
-end
+		end
 
 end

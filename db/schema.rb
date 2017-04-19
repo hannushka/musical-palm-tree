@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -18,10 +17,9 @@ ActiveRecord::Schema.define(version: 20170417110624) do
     t.integer  "contest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["contest_id"], name: "index_bets_on_contest_id"
+    t.index ["name"], name: "index_bets_on_name", unique: true
   end
-
-  add_index "bets", ["contest_id"], name: "index_bets_on_contest_id"
-  add_index "bets", ["name"], name: "index_bets_on_name", unique: true
 
   create_table "contestants", force: :cascade do |t|
     t.integer  "start_nbr"
@@ -31,9 +29,8 @@ ActiveRecord::Schema.define(version: 20170417110624) do
     t.integer  "contest_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["contest_id"], name: "index_contestants_on_contest_id"
   end
-
-  add_index "contestants", ["contest_id"], name: "index_contestants_on_contest_id"
 
   create_table "contests", force: :cascade do |t|
     t.string   "name"
@@ -48,10 +45,9 @@ ActiveRecord::Schema.define(version: 20170417110624) do
     t.integer  "contestant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.index ["bet_id", "contestant_id"], name: "index_placements_on_bet_id_and_contestant_id", unique: true
+    t.index ["bet_id"], name: "index_placements_on_bet_id"
+    t.index ["contestant_id"], name: "index_placements_on_contestant_id"
   end
-
-  add_index "placements", ["bet_id", "contestant_id"], name: "index_placements_on_bet_id_and_contestant_id", unique: true
-  add_index "placements", ["bet_id"], name: "index_placements_on_bet_id"
-  add_index "placements", ["contestant_id"], name: "index_placements_on_contestant_id"
 
 end

@@ -7,7 +7,7 @@
 	<%= link_to "Tillbaka", edit_bet_path, class: "btn btn-lg btn-primary" %>
 </p>
 
-<% @bet.placements.each do |p| %>
+<% @bet.placements.order('position ASC').each do |p| %>
 	<p>
 		Placering #<%= p.position %>
 		<%= p.contestant.title %>
