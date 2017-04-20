@@ -1,26 +1,20 @@
 <div class="container-fluid">
-	<div class="row">
+	<div class="row textarea-big">
 		<h1>Tack för ditt svar!</h1>
-	</div>
 
-	<div class="row">
 		<p>Ditt svar har sparats.</p>
 		<p>Om du vill ändra ditt svar så klicka på tillbaka.</p>
-	</div>
 
-	<div class="row">
 		<p>
 			<%= link_to "Tillbaka", edit_bet_path, class: "btn btn-lg btn-primary" %>
 		</p>
-	</div>
 
-	<% @bet.placements.order('position ASC').each do |p| %>
-		<div class="row">
-			<p>
-				Placering #<%= p.position %>
-				<%= p.contestant.title %>
-				<%= p.contestant.country %>
-			</p>
-		</div>
-	<% end %>
+		<% @bet.placements.order('position ASC').each do |p| %>
+		<p>
+			Placering #<%= p.position %>
+			<%= p.contestant.title %>
+			<%= p.contestant.country %>
+		</p>
+		<% end %>
+	</div>
 </div>

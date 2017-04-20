@@ -1,57 +1,75 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
 /* universal */
-
 body {
-  padding: 20px;
+	padding: 20px;
 }
 
 section {
-  overflow: auto;
+	overflow: auto;
 }
 
 textarea {
-  resize: vertical;
+	resize: vertical;
 }
 
 .center {
-  text-align: center;
+	text-align: center;
 }
 
 .center h1 {
-  margin-bottom: 10px;
+	margin-bottom: 10px;
 }
-
 
 .field_with_errors {
-	 @extend .has-error;
+	@extend .has-error;
+
 	.form-control {
-	  color: $state-danger-text;
+		color: $state-danger-text;
 	}
 }
+@media (min-width: 1200px) {
+	.textarea-big {
+		float: none;
+		width: 50%;
+	}
 
+	.form-big {
+		float: none;
+		width: 25%;
+	}
+}
+@media (min-width: 768px) {
+	.form-big {
+		float: none;
+		width: 50%;
+	}
+}
 /* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1;
 }
 
 h1 {
-  font-size: 3em;
-  letter-spacing: -2px;
-  margin-bottom: 30px;
+	font-size: 3em;
+	letter-spacing: -2px;
+	margin-bottom: 30px;
 }
 
 h2 {
-  font-size: 1.2em;
-  letter-spacing: -1px;
-  margin-bottom: 30px;
-  font-weight: normal;
-  color: #777;
+	font-size: 1.2em;
+	letter-spacing: -1px;
+	margin-bottom: 30px;
+	font-weight: normal;
+	color: #777;
 }
 
 p {
-  font-size: 1.1em;
-  line-height: 1.7em;
+	font-size: 1.1em;
+	line-height: 1.7em;
 }

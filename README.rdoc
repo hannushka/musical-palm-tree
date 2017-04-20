@@ -1,4 +1,6 @@
 == Masses melodfestivaltävling
 
 Under development.
-https://www.codecademy.com/articles/deploy-rails-to-heroku
+
+-https://www.codecademy.com/articles/deploy-rails-to-heroku
+- gem install rubocop
