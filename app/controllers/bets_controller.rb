@@ -23,6 +23,10 @@ class BetsController < ApplicationController
 	    end
 	end
 
+	def index
+		@bets = Bet.all.sort_by(&:result)
+	end
+
 	def show
 		@bet = Bet.find(params[:id])
 	end
