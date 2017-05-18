@@ -25,6 +25,7 @@ class BetsController < ApplicationController
 
 	def index
 		@bets = Bet.all.sort_by(&:result)
+		@contest = Contest.order("created_at").last
 	end
 
 	def show

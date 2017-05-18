@@ -19,10 +19,9 @@ class Bet < ActiveRecord::Base
         	@points = @points + (@placement - @actual_placement)
 				end
 			end
-			@points = @points.to_s + " poäng"
 			return @points
 		else
-			return "-"
+			return nil
 		end
 	end
 
