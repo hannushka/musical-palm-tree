@@ -1,6 +1,6 @@
 <div class="container-fluid">
 	<div class="row textarea-big">
-		<h1>Skapa tävling Eurovision administration</h1>
+		<h1>Skapa tävling administration</h1>
 	</div>
 
 	<%= render "layouts/nav" %>
@@ -14,7 +14,7 @@
 		<%= f.fields_for :contestants do |b| %>
 			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
 			<div class="form-group row form-big">
-				<p>Startnummer #<%= b.object.start_nbr %></p>
+				<p>Låt #<%= b.object.start_nbr %></p>
 				<%= f.label :titel %>
 				<p><%= b.text_field :title, class: 'form-control' %></p>
 				<%= f.label :land %>
@@ -22,7 +22,7 @@
 			</div>
 		<% end %>
 		<div class="form-group row form-big">
-			<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
+			<%= f.submit "Spara tävling", class: "btn btn-primary"%>
 		</div>
 	<% end %>
 </div>

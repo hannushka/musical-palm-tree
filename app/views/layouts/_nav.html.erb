@@ -1,4 +1,7 @@
 <div class="nav row textarea-big">
 		<span><%= link_to "Logga ut", logout_path, method: :delete %></span>
-		<span><%= link_to "Skapa ny tävling", new_contest_path %></span>
+		<span><%= link_to "Skapa tävling", new_contest_path %></span>
+		<% if !Contest.order("created_at").last.nil? %>
+			<span><%= link_to "Visa låtarna", contest_path(Contest.order("created_at").last) %></span>
+		<% end %>
 </div>
