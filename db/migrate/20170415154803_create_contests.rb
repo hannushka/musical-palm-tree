@@ -3,7 +3,7 @@ class CreateContests < ActiveRecord::Migration
     create_table :contests do |t|
       t.string :name
 			t.boolean :completed
-			
+
       t.timestamps null: false
     end
   end

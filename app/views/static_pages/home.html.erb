@@ -22,7 +22,8 @@
 			placering flera gånger.
 		</p>
 
-		<% if Contest.order("created_at").last.nil? || Contest.order("created_at").last.completed %>
+		<% if Contest.order("created_at").last.nil? %>
+		<% elsif Contest.order("created_at").last.completed %>
 			<%= link_to "Se resultatet", bets_path, class: "btn btn-lg btn-primary" %>
 		<% else %>
 			<%= link_to "Nog nu! Ta mig till tävlingen!", new_bet_path, class: "btn btn-lg btn-primary" %>
