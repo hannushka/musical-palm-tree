@@ -2,9 +2,9 @@
 	<div class="row textarea-big">
 		<h1>Skapa tävling Eurovision administration</h1>
 	</div>
-		<div class="row textarea-big">
-		<%= link_to "Logga ut", logout_path, method: :delete %>
-	</div>
+
+	<%= render "layouts/nav" %>
+
 	<%= form_for @contest, html: {class: 'form-horizontal'} do |f| -%>
 		<%= f.hidden_field :completed, value: false %>
 		<div class="form-group row form-big">
