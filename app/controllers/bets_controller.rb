@@ -2,7 +2,7 @@ class BetsController < ApplicationController
 
 	def new
 		@bet = Contest.order("created_at").last.bets.build
-		(1..Contestant.all.count).each do |i|
+		(1..Contest.order("created_at").last.contestants.all.count).each do |i|
 			@bet.placements.build(position: i)
 		end
 	end
