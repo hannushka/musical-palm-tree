@@ -28,6 +28,20 @@ class ContestsController < ApplicationController
 		@contest = Contest.find(params[:id])
 	end
 
+	def edit
+		@contest = Contest.find(params[:id])
+	end
+
+ 	def update
+    @contest = Contest.find(params[:id])
+    if @contest.update_attributes(contest_params)
+      flash[:success] = "Tävlingen har uppdaterats."
+      redirect_to @contest
+    else
+      render 'edit'
+    end
+  end
+
 	def require_login
     unless logged_in?
       flash[:danger] = "Du måste logga in för att komma åt denna sidan."
@@ -37,6 +51,6 @@ class ContestsController < ApplicationController
 
 	private
 	  def contest_params
-	    params.require(:contest).permit(:name, :completed, contestants_attributes: [:start_nbr, :title, :country])
+	    params.require(:contest).permit(:name, :completed, :id, contestants_attributes: [:start_nbr, :title, :country, :position, :id])
 		end
 end

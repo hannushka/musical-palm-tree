@@ -6,6 +6,11 @@
 	<%= render "layouts/nav" %>
 
 	<div class="row textarea-big">
+		<p>Om du vill ändra ditt svar så klicka på tillbaka.</p>
+		<p><%= link_to "Tillbaka", edit_contest_path, class: "btn btn-lg btn-primary" %></p>
+	</div>
+
+	<div class="row textarea-big">
 			<% @contest.contestants.order('start_nbr ASC').each do |c| %>
 			<p>
 				Placering #<%= c.start_nbr %>
