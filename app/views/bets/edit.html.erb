@@ -13,7 +13,7 @@
 			<div class="form-group row">
 				<p>Placering #<%= counter %></p>
 				<p>
-					<%= b.collection_select :contestant_id, Contestant.all, :id, :complete_title ,{ include_blank: "Välj låt" }, { class: 'form-control' } %>
+					<%= b.collection_select :contestant_id, @contestants, :id, :complete_title ,{ include_blank: "Välj låt" }, { class: 'form-control' } %>
 				</p>
 				<% counter += 1 %>
 			</div>

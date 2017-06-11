@@ -13,7 +13,7 @@
 	<div class="row textarea-big">
 			<% @contest.contestants.order('start_nbr ASC').each do |c| %>
 			<p>
-				Placering #<%= c.start_nbr %>
+				Låt #<%= c.start_nbr %>
 				<%= c.title %>
 				<%= c.country %>
 			</p>
