@@ -1,6 +1,5 @@
 == Masses melodfestivaltävling
 
-Under development.
+A web app for my dad's Eurovision betting contest.
 
--https://www.codecademy.com/articles/deploy-rails-to-heroku
-- gem install rubocop
+Hosted at http://massestavling.herokuapp.com
