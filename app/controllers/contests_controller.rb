@@ -28,6 +28,11 @@ class ContestsController < ApplicationController
 		@contest = Contest.find(params[:id])
 	end
 
+	def edit_positions
+		@contest = Contest.find(params[:id])
+		@contestants = @contest.contestants
+	end
+
 	def edit
 		@contest = Contest.find(params[:id])
 		@contestants = @contest.contestants

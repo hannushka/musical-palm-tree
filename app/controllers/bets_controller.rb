@@ -25,8 +25,12 @@ class BetsController < ApplicationController
 	end
 
 	def index
-		@bets = Bet.all.sort_by(&:result)
 		@contest = Contest.order("created_at").last
+		if @contest.completed
+			@bets = Bet.all.sort_by(&:result)
+		else
+			@bets = []
+		end
 	end
 
 	def show

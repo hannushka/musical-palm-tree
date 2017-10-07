@@ -12,10 +12,10 @@
 		<%= if @contest.nil?
 			@text = "Det finns ingen tävling ännu."
 		else
-			if @contest.completed
-				@text = "Du kan titta närmare på svaren genom att trycka på deltagarens namn i listan. Siffran inom parantes är den faktiska placeringen. "
-			else
+			if !@contest.completed
 				@text = "Tävlingen har inte avslutats ännu."
+			else
+				@text = "Du kan titta närmare på svaren genom att trycka på deltagarens namn i listan. Siffran inom parantes är den faktiska placeringen. "
 			end
 		end %>
 		</p>

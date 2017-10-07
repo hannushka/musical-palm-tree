@@ -1,9 +1,9 @@
 <div class="nav row textarea-big">
-		<span><%= link_to "Logga ut", logout_path, method: :delete %></span>
 		<span><%= link_to "Skapa ny tävling", new_contest_path %></span>
 		<% if !Contest.order("created_at").last.nil? %>
 			<span><%= link_to "Visa låtarna", contest_path(Contest.order("created_at").last) %></span>
 		<% end %>
-		<span><%= link_to "Fyll i resultat", '#' %></span>
+		<span><%= link_to "Rätt ordning", edit_positions_contest_path(Contest.order("created_at").last) %></span>
 		<span><%= link_to "Visa svaren", bets_path %></span>
+		<span><%= link_to "Logga ut", logout_path, method: :delete %></span>
 </div>
