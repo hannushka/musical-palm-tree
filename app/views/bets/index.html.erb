@@ -1,7 +1,13 @@
 <div class="container-fluid">
 	<div class="row textarea-big">
 		<h1>Visa svaren</h1>
+	</div>
+	
+	<% if logged_in? %>
+		<%= render "layouts/nav" %>
+	<% end %>
 
+	<div class="row textarea-big">
 		<p>
 		<%= if @contest.nil?
 			@text = "Det finns ingen tävling ännu."

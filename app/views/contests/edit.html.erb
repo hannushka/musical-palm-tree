@@ -19,6 +19,8 @@
 				<p><%= b.text_field :title, class: 'form-control' %></p>
 				<%= f.label :land %>
 				<p><%= b.text_field :country, class: 'form-control' %></p>
+				<!--<%= f.label :position %>			
+				<%= b.select :position, options_for_select(1..@contestants.count), { prompt: "Välj slutposition" }, { class: 'form-control' } %> !-->
 			</div>
 		<% end %>
 		<div class="form-group row form-big">
