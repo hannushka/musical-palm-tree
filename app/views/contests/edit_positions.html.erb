@@ -10,7 +10,7 @@
 		<%= f.fields_for :contestants do |b| %>
 			<div class="form-group row form-big">		
 				<p>Låt #<%= b.object.start_nbr %></p>
-				<%= b.select :position, @contestants.collect {|p| [ p.complete_title, p.start_nbr ] }, { prompt: "Välj slutposition" }, { class: 'form-control' } %> 
+				<%= b.select :position, @contestants.order("country").collect {|p| [ p.complete_title, p.start_nbr ] }, { prompt: "Välj land" }, { class: 'form-control' } %> 
 			</div>
 		<% end %>
 		<div class="form-group row form-big">

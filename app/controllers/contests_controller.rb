@@ -3,7 +3,7 @@ class ContestsController < ApplicationController
 
 	def new
 		@contest = Contest.new
-		(1..2).each do |i| # Better solution for determining number of contestants needed
+		(1..26).each do |i| # Better solution for determining number of contestants needed
 			@contest.contestants.build(start_nbr: i)
 		end
 	end

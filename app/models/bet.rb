@@ -5,7 +5,7 @@ class Bet < ActiveRecord::Base
 	validates_presence_of :name, message: 'Du måste fylla i ett namn.'
 
 	accepts_nested_attributes_for :placements
-	validates_associated :placements, message: ''
+	validates_associated :placements, message: "Du får inte skicka in tomma placeringar."
 
 	def result
 		if self.contest.completed

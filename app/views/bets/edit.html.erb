@@ -2,24 +2,29 @@
 	<div class="row">
 		<h1>Skriv in ditt namn och låtarna!</h1>
 	</div>
-	<%= form_for @bet do |f| %>
-		<div class="form-group row">
-	  	<p>Ditt namn *	</p>
-			<p><%= f.text_field :name, class: 'form-control' %></p>
-		</div>
-		<% counter = 1 %>
-		<%= f.fields_for :placements do |b| %>
-		<%= b.hidden_field :position, value: counter %>
+	
+	<% if !Contest.order("created_at").last.completed %>
+		<%= form_for @bet do |f| %>
 			<div class="form-group row">
-				<p>Placering #<%= counter %></p>
-				<p>
-					<%= b.collection_select :contestant_id, @contestants, :id, :complete_title ,{ include_blank: "Välj låt" }, { class: 'form-control' } %>
-				</p>
-				<% counter += 1 %>
+			<p>Ditt namn *	</p>
+				<p><%= f.text_field :name, class: 'form-control' %></p>
 			</div>
-	  <% end %>
-		<div class="form-group row">
-			<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
-		</div>
+			<% counter = 1 %>
+			<%= f.fields_for :placements do |b| %>
+			<%= b.hidden_field :position, value: counter %>
+				<div class="form-group row">
+					<p>Placering #<%= counter %></p>
+					<p>
+						<%= b.collection_select :contestant_id, Contest.order("created_at").last.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" }, { class: 'form-control' } %>
+					</p>
+					<% counter += 1 %>
+				</div>
+		<% end %>
+			<div class="form-group row">
+				<%= f.submit "Skicka in ditt svar", class: "btn btn-primary"%>
+			</div>
+		<% end %>
+	<% else %>
+		<p>Tävlingen är avslutad.</p>
 	<% end %>
 </div>

@@ -20,6 +20,7 @@ class BetsController < ApplicationController
 	      	 string = string + " "+ msg
 	    	end
 				flash.now[:danger]  = string.to_s
+				@contestants = Contest.order("created_at").last.contestants
 	      render 'new'
 	    end
 	end
@@ -27,7 +28,7 @@ class BetsController < ApplicationController
 	def index
 		@contest = Contest.order("created_at").last
 		if @contest.completed
-			@bets = Bet.all.sort_by(&:result)
+			@bets = Bet.select { |b| b.contest_id == @contest.id }.sort_by(&:result)
 		else
 			@bets = []
 		end
@@ -60,6 +61,7 @@ class BetsController < ApplicationController
 					string = string + " "+ msg
 			 end
 			 flash.now[:danger]  = string.to_s
+			 @contestants = Contest.order("created_at").last.contestants
 			 render 'edit'
 		 end
 	 end
