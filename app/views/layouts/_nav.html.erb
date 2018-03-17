@@ -5,5 +5,6 @@
 		<% end %>
 		<span><%= link_to "Rätt ordning", edit_positions_contest_path(Contest.order("created_at").last) %></span>
 		<span><%= link_to "Visa svaren", bets_path %></span>
+		<span><%= link_to "Inställningar", edit_setting_path(Setting.order("created_at").first) %></span>
 		<span><%= link_to "Logga ut", logout_path, method: :delete %></span>
 </div>
