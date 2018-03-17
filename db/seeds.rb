@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Contest.create(name: "Eurovision 2017")
-Contest.first.contestants.create(start_nbr: 1, country: "Sverige", title: "Statements - Loreen")
-Contest.first.contestants.create(start_nbr: 1, country: "Test", title: "TestTest")
+# Contest.create(name: "Eurovision 2017")
+# Contest.first.contestants.create(start_nbr: 1, country: "Sverige", title: "Statements - Loreen")
+# Contest.first.contestants.create(start_nbr: 1, country: "Test", title: "TestTest")
+Setting.create(nbr_contestants: 26)
