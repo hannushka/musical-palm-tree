@@ -7,4 +7,11 @@ Hosted at http://massestavling.herokuapp.com
 == Update locally
 
 rbenv exec bundle update
+
 rbenv exec bundle install --path vendor/bundle
+
+== Setup on Heroku
+
+heroku run rake db:seed
+
+Add admin user to database
