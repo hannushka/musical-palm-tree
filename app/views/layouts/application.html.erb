@@ -8,9 +8,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<% flash.each do |message_type, message| %>
-		<div class="alert alert-<%= message_type %>"><%= message %></div>
-	<% end %>
-	<%= yield %>
+<div id="filter">
+<div class="container">
+	<div class="center-block">
+		<div class="row">
+			<% flash.each do |message_type, message| %>
+				<div class="alert-box"><%= message %></div>
+			<% end %>
+		</div>
+		<%= yield %>  
+	</div>
+</div>
 </body>
 </html>

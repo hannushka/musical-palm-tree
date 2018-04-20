@@ -1,20 +1,18 @@
-<div class="container-fluid">
-	<div class="row textarea-big">
-		<h1>Rätt ordning</h1>
-	</div>
+<div class="row">
+	<h1>Rätt ordning</h1>
+</div>
 
-	<%= render "layouts/nav" %>
-	
-	<%= form_for @contest, html: {class: 'form-horizontal'} do |f| -%>
-	<%= f.hidden_field :completed, value: true %>
-		<%= f.fields_for :contestants do |b| %>
-			<div class="form-group row form-big">		
-				<p>Låt #<%= b.object.start_nbr %></p>
-				<%= b.select :position, @contestants.order("country").collect {|p| [ p.complete_title, p.start_nbr ] }, { prompt: "Välj land" }, { class: 'form-control' } %> 
-			</div>
-		<% end %>
-		<div class="form-group row form-big">
-			<%= f.submit "Spara rätt ordning", class: "btn btn-primary"%>
+<%= render "layouts/nav" %>
+
+<%= form_for @contest, html: {class: 'form-horizontal'} do |f| -%>
+<%= f.hidden_field :completed, value: true %>
+	<%= f.fields_for :contestants do |b| %>
+		<div class="form-group">		
+			<p>Låt #<%= b.object.start_nbr %></p>
+			<%= b.select :position, @contestants.order("country").collect {|p| [ p.complete_title, p.start_nbr ] }, { prompt: "Välj land" }, { class: 'form-control' } %> 
 		</div>
 	<% end %>
-</div>
+	<div class="form-group">
+		<%= f.submit "Spara rätt ordning", class: "btn btn-default"%>
+	</div>
+<% end %>

@@ -1,21 +1,19 @@
-<div class="container-fluid">
-	<div class="row textarea-big">
-		<h1>Visa låtarna administration</h1>
-	</div>
+<div class="row">
+	<h1>Visa låtarna administration</h1>
+</div>
 
-	<%= render "layouts/nav" %>
+<%= render "layouts/nav" %>
 
-	<div class="row textarea-big">
-			<% @contest.contestants.order('start_nbr ASC').each do |c| %>
-			<p>
-				Låt #<%= c.start_nbr %>
-				<%= c.title %>
-				<%= c.country %>
-			</p>
-		<% end %>
-	</div>
+<div class="row">
+	<% @contest.contestants.order('start_nbr ASC').each do |c| %>
+	<p>
+		Låt #<%= c.start_nbr %>
+		<%= c.title %>
+		<%= c.country %>
+	</p>
+	<% end %>
+</div>
 
-	<div class="row textarea-big">
-		<p><%= link_to "Ändra låtarna", edit_contest_path, class: "btn btn-primary" %></p>
-	</div>
+<div class="row">
+	<p><%= link_to "Ändra låtarna", edit_contest_path, class: "btn btn-default" %></p>
 </div>

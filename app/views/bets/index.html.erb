@@ -1,53 +1,51 @@
-<div class="container-fluid">
-	<div class="row textarea-big">
-		<h1>Visa svaren</h1>
-	</div>
-	
-	<% if logged_in? %>
-		<%= render "layouts/nav" %>
-	<% end %>
+<div class="row">
+	<h1>Visa svaren</h1>
+</div>
 
-	<div class="row textarea-big">
-		<p>
-		<%= if @contest.nil?
-			@text = "Det finns ingen tävling ännu."
+<% if logged_in? %>
+	<%= render "layouts/nav" %>
+<% end %>
+
+<div class="row">
+	<p>
+	<%= if @contest.nil?
+		@text = "Det finns ingen tävling ännu."
+	else
+		if !@contest.completed
+			@text = "Tävlingen har inte avslutats ännu."
 		else
-			if !@contest.completed
-				@text = "Tävlingen har inte avslutats ännu."
-			else
-				@text = "Du kan titta närmare på svaren genom att trycka på deltagarens namn i listan. Siffran inom parantes är den faktiska placeringen. "
-			end
-		end %>
-		</p>
+			@text = "Du kan titta närmare på svaren genom att trycka på deltagarens namn i listan. Siffran inom parantes är den faktiska placeringen. "
+		end
+	end %>
+	</p>
 
-		<table class="table table-hover table-responsive">
-			<tbody>
-				<% @bets.each do |b| %>
-				<tr class="td1">
-					<td>
-						<p>
-							<%= b.name %>
-							<% if !b.result.nil? %>
-								<%= b.result %>
-								poäng
-							<% end %>
-						</p>
+	<table class="table table-hover table-responsive">
+		<tbody>
+			<% @bets.each do |b| %>
+			<tr class="td1">
+				<td>
+					<p>
+						<%= b.name %>
 						<% if !b.result.nil? %>
-							<div style="display: none;">
-								<% b.placements.order('position ASC').each do |p| %>
-									<p>
-										#<%= p.position %>
-										<%= p.contestant.title %>
-										<%= p.contestant.country %>
-										(<%= p.contestant.position %>)
-									</p>
-								<% end %>
-							</div>
+							<%= b.result %>
+							poäng
 						<% end %>
-					</td>
-				</tr>
-				<% end %>
-			</tbody>
-		</table>
-	</div>
+					</p>
+					<% if !b.result.nil? %>
+						<div style="display: none;">
+							<% b.placements.order('position ASC').each do |p| %>
+								<p>
+									#<%= p.position %>
+									<%= p.contestant.title %>
+									<%= p.contestant.country %>
+									(<%= p.contestant.position %>)
+								</p>
+							<% end %>
+						</div>
+					<% end %>
+				</td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
 </div>

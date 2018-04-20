@@ -1,17 +1,15 @@
-<div class="container-fluid">
-	<div class="row textarea-big">
-		<h1>Inställningar</h1>
-	</div>
-
-	<%= render "layouts/nav" %>
-
-	<%= form_for @setting, html: {class: 'form-horizontal'} do |f| -%>
-		<div class="form-group row form-big">
-			<p>Antalet bidrag per tävling</p>
-			<p><%= f.text_field :nbr_contestants, class: 'form-control' %></p>
-		</div>
-		<div class="form-group row form-big">
-			<%= f.submit "Spara", class: "btn btn-primary"%>
-		</div>
-	<% end %>
+<div class="row">
+	<h1>Inställningar</h1>
 </div>
+
+<%= render "layouts/nav" %>
+
+<%= form_for @setting, html: {class: 'form-horizontal'} do |f| -%>
+	<div class="form-group">
+		<p>Antalet bidrag per tävling</p>
+		<p><%= f.text_field :nbr_contestants, class: 'form-control' %></p>
+	</div>
+	<div class="form-group">
+		<%= f.submit "Spara", class: "btn btn-default"%>
+	</div>
+<% end %>
