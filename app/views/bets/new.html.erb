@@ -2,17 +2,16 @@
 	<h1>Skriv in ditt namn och låtarna!</h1>
 </div>
 
-<div class="row">
 	<% if !Contest.order("created_at").last.completed %>
 		<%= form_for @bet, as: :bet, url: bets_path, html: {class: 'form-horizontal', multipart: true, method: :post} do |f| -%>
-		<div class="form-group">
+		<div class="row form-group">
 			<p>Ditt namn *
 			</p>
 			<p><%= f.text_field :name, class: 'form-control' %></p>
 		</div>
 		<%= f.fields_for :placements do |b| %>
 			<%= b.hidden_field :position, value: b.object.position %>
-			<div class="form-group">
+			<div class="row form-group">
 				<p>Placering #<%= b.object.position %></p>
 				<p>
 					<%= b.collection_select :contestant_id, Contest.order("created_at").last.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" },
@@ -20,11 +19,10 @@
 				</p>
 			</div>
 		<% end %>
-		<div class="form-group">
+		<div class="row form-group">
 			<%= f.submit "Skicka in ditt svar", class: "btn btn-default"%>
 		</div>
 		<% end %>
 	<% else %>
 		<p>Tävlingen är avslutad.</p>
 	<% end %>
-</div>

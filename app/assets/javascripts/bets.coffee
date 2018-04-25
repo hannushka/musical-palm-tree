@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'turbolinks:load', ->
-  $('.td1').click ->
-    $(this).find('div:last-child').toggle 'show'
+   $('.bets').click ->
+    $(this).find('.placements').toggle 'show'
     return
-  return
+return

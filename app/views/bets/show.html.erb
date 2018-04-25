@@ -1,13 +1,13 @@
 <div class="row">
 	<h1>Tack för ditt svar!</h1>
 
-	<p>Ditt svar har sparats.</p>
-	<p>Om du vill ändra ditt svar så klicka på tillbaka.</p>
+	<p>Ditt svar har sparats. Om du vill ändra ditt svar så klicka på tillbaka.</p>
 
 	<p>
 		<%= link_to "Tillbaka", edit_bet_path, class: "btn btn-lg btn-default" %>
 	</p>
 
+	<h3>Du har skickat in följande tippning:</h3>
 	<% @bet.placements.order('position ASC').each do |p| %>
 	<p>
 		Placering #<%= p.position %>

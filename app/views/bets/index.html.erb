@@ -18,34 +18,28 @@
 		end
 	end %>
 	</p>
+</div>
 
-	<table class="table table-responsive">
-		<tbody>
-			<% @bets.each do |b| %>
-			<tr class="td1">
-				<td>
+<div class="row">
+<% @bets.each do |b| %>
+	<div class="bets">
+		<h3><%= b.name %>
+		<% if !b.result.nil? %>
+			<%= b.result %>
+			poäng
+		<% end %></h3>
+		<% if !b.result.nil? %>
+			<div class="placements" style="display: none;">
+				<% b.placements.order('position ASC').each do |p| %>
 					<p>
-						<%= b.name %>
-						<% if !b.result.nil? %>
-							<%= b.result %>
-							poäng
-						<% end %>
+					#<%= p.position %>
+					<%= p.contestant.title %>
+					<%= p.contestant.country %>
+					(<%= p.contestant.position %>)
 					</p>
-					<% if !b.result.nil? %>
-						<div style="display: none;">
-							<% b.placements.order('position ASC').each do |p| %>
-								<p>
-									#<%= p.position %>
-									<%= p.contestant.title %>
-									<%= p.contestant.country %>
-									(<%= p.contestant.position %>)
-								</p>
-							<% end %>
-						</div>
-					<% end %>
-				</td>
-			</tr>
-			<% end %>
-		</tbody>
-	</table>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+<% end %>
 </div>

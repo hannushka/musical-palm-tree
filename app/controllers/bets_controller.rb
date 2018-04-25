@@ -32,6 +32,7 @@ class BetsController < ApplicationController
 		else
 			@bets = []
 		end
+		@plac = 1
 	end
 
 	def show
