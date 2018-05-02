@@ -1,9 +1,8 @@
 class Bet < ActiveRecord::Base
   belongs_to :contest
 	has_many :placements, inverse_of: :bet, dependent: :destroy
-  validates_uniqueness_of :name, message: 'Namnet finns redan registrerat, välj ett annat.'
 	validates_presence_of :name, message: 'Du måste fylla i ett namn.'
-
+	validates_uniqueness_of :name, scope: :contest_id, message: 'Namnet finns redan registrerat, välj ett annat.' 
 	accepts_nested_attributes_for :placements
 	validates_associated :placements, message: "Du får inte skicka in tomma placeringar."
 

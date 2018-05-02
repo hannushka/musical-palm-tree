@@ -4,27 +4,25 @@
 
 <%= render "layouts/nav" %>
 
-<div class="row">
-	<%= form_for @contest, html: {class: 'form-horizontal'} do |f| -%>
-		<%= f.hidden_field :completed, value: false %>
+<%= form_for @contest, html: {class: 'form-horizontal'} do |f| -%>
+	<%= f.hidden_field :completed, value: false %>
+	<div class="form-group">
+		<p>Namn på tävling *</p>
+		<p><%= f.text_field :name, class: 'form-control' %></p>
+	</div>
+	<%= f.fields_for :contestants do |b| %>
+		<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
 		<div class="form-group">
-			<p>Namn på tävling *</p>
-			<p><%= f.text_field :name, class: 'form-control' %></p>
-		</div>
-		<%= f.fields_for :contestants do |b| %>
-			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
-			<div class="form-group">
-				<p>Låt #<%= b.object.start_nbr %></p>
-				<%= f.label :titel %>
-				<p><%= b.text_field :title, class: 'form-control' %></p>
-				<%= f.label :land %>
-				<p><%= b.text_field :country, class: 'form-control' %></p>
-				<!--<%= f.label :position %>			
-				<%= b.select :position, options_for_select(1..@contestants.count), { prompt: "Välj slutposition" }, { class: 'form-control' } %> !-->
-			</div>
-		<% end %>
-		<div class="form-group ">
-			<%= f.submit "Spara ändringar", class: "btn btn-default"%>
+			<p>Låt #<%= b.object.start_nbr %></p>
+			<%= f.label :titel %>
+			<p><%= b.text_field :title, class: 'form-control' %></p>
+			<%= f.label :land %>
+			<p><%= b.text_field :country, class: 'form-control' %></p>
+			<!--<%= f.label :position %>			
+			<%= b.select :position, options_for_select(1..@contestants.count), { prompt: "Välj slutposition" }, { class: 'form-control' } %> !-->
 		</div>
 	<% end %>
-</div>
+	<div class="form-group">
+		<%= f.submit "Spara ändringar", class: "btn btn-default"%>
+	</div>
+<% end %>
