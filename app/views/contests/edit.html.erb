@@ -12,14 +12,16 @@
 	</div>
 	<%= f.fields_for :contestants do |b| %>
 		<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
-		<div class="form-group">
+		<div class="form-group row">
 			<p>Låt #<%= b.object.start_nbr %></p>
-			<%= f.label :titel %>
-			<p><%= b.text_field :title, class: 'form-control' %></p>
-			<%= f.label :land %>
-			<p><%= b.text_field :country, class: 'form-control' %></p>
-			<!--<%= f.label :position %>			
-			<%= b.select :position, options_for_select(1..@contestants.count), { prompt: "Välj slutposition" }, { class: 'form-control' } %> !-->
+			<div class="col-md-6 col-lg-6">
+				<%= f.label :titel %>
+				<p><%= b.text_field :title, class: 'form-control' %></p>
+			</div>
+			<div class="col-md-6 col-lg-6">
+				<%= f.label :land %>
+				<p><%= b.text_field :country, class: 'form-control' %></p>
+			</div>
 		</div>
 	<% end %>
 	<div class="form-group">
