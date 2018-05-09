@@ -10,9 +10,7 @@
 	<h3>Du har skickat in följande tippning:</h3>
 	<% @bet.placements.order('position ASC').each do |p| %>
 	<p>
-		Placering #<%= p.position %>
-		<%= p.contestant.title %>
-		<%= p.contestant.country %>
+		Placering #<%= p.position %> <%= p.contestant.complete_title %>
 	</p>
 	<% end %>
 </div>

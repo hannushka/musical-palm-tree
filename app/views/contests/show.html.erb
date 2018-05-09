@@ -7,9 +7,7 @@
 <div class="row">
 	<% @contest.contestants.order('start_nbr ASC').each do |c| %>
 	<p>
-		Låt #<%= c.start_nbr %>
-		<%= c.title %>
-		<%= c.country %>
+		Låt #<%= c.start_nbr %> <%= c.complete_title %>
 	</p>
 	<% end %>
 </div>

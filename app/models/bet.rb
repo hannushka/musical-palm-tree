@@ -10,13 +10,7 @@ class Bet < ActiveRecord::Base
 		if self.contest.completed
 			@points = 0
 			self.placements.each do |p|
-				@placement = p.position
-				@actual_placement = p.contestant.position
-				if @placement < @actual_placement
-        	@points = @points + (@actual_placement - @placement)
-        else
-        	@points = @points + (@placement - @actual_placement)
-				end
+				@points = @points + (p.position-p.contestant.position).abs
 			end
 			return @points
 		else
