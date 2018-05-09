@@ -29,8 +29,7 @@ class ContestsController < ApplicationController
 	end
 
 	def edit_positions
-		@contest = Contest.find(params[:id])
-		@contestants = @contest.contestants
+		@contest = Contest.includes(:contestants).order("contestants.start_nbr asc").find(params[:id])
 	end
 
 	def edit
@@ -42,7 +41,7 @@ class ContestsController < ApplicationController
     @contest = Contest.find(params[:id])
     if @contest.update_attributes(contest_params)
       flash[:success] = "Tävlingen har uppdaterats."
-      redirect_to @contest
+      redirect_to bets_path
     else
       render 'edit'
     end

@@ -8,8 +8,8 @@
 <%= f.hidden_field :completed, value: true %>
 	<%= f.fields_for :contestants do |b| %>
 		<div class="form-group">		
-			<p>Låt #<%= b.object.start_nbr %></p>
-			<%= b.select :position, @contestants.order("country").collect {|p| [ p.complete_title, p.start_nbr ] }, { prompt: "Välj land" }, { class: 'form-control' } %> 
+			<p>Placering för #<%= b.object.start_nbr %> <%= b.object.complete_title %></p>
+			<%= b.select :position, @contest.contestants.order(:country).collect {|p| [ p.start_nbr, p.start_nbr ] }, { prompt: "Välj land" }, { class: 'form-control' } %> 
 		</div>
 	<% end %>
 	<div class="form-group">
