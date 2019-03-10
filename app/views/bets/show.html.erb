@@ -1,16 +1,12 @@
-<div class="row">
-	<h1>Tack för ditt svar!</h1>
+<h1>Tack för ditt svar!</h1>
 
-	<p>Ditt svar har sparats. Om du vill ändra ditt svar så klicka på tillbaka.</p>
+Ditt svar har sparats. <%= link_to "← Klicka här för att ändra", edit_bet_path%>
 
-	<p>
-		<%= link_to "Tillbaka", edit_bet_path, class: "btn btn-lg btn-default" %>
-	</p>
-
-	<h3>Du har skickat in följande tippning:</h3>
+<div class="box">
+	<b>Du har skickat in följande tippning:</b>
 	<% @bet.placements.order('position ASC').each do |p| %>
-	<p>
-		Placering #<%= p.position %> <%= p.contestant.complete_title %>
-	</p>
+		<div class="contestant" style="width: fit-content;">
+			<%= p.position %>. <%= p.contestant.complete_title %>
+		</div>
 	<% end %>
 </div>

@@ -1,15 +1,9 @@
-<div class="row">
-	<h1>Inställningar</h1>
-</div>
+<h1>Inställningar</h1>
 
 <%= render "layouts/nav" %>
 
 <%= form_for @setting, html: {class: 'form-horizontal'} do |f| -%>
-	<div class="form-group">
-		<p>Antalet bidrag per tävling</p>
-		<p><%= f.text_field :nbr_contestants, class: 'form-control' %></p>
-	</div>
-	<div class="form-group">
-		<%= f.submit "Spara", class: "btn btn-default"%>
-	</div>
+	Antalet bidrag per tävling
+	<%= f.text_field :nbr_contestants, class: 'form-control' %>
+	<%= f.submit "Spara", class: "submit"%>
 <% end %>

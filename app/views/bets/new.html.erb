@@ -1,28 +1,16 @@
-<div class="row">
-	<h1>Skriv in ditt namn och låtarna!</h1>
-</div>
+<h1>Skriv in ditt namn och låtarna!</h1>
 
-	<% if !Contest.order("created_at").last.completed %>
-		<%= form_for @bet, as: :bet, url: bets_path, html: {class: 'form-horizontal', multipart: true, method: :post} do |f| -%>
-		<div class="row form-group">
-			<p>Ditt namn *
-			</p>
-			<p><%= f.text_field :name, class: 'form-control' %></p>
-		</div>
+<% if !Contest.order("created_at").last.completed %>
+	<%= form_for @bet, as: :bet, url: bets_path, html: { multipart: true, method: :post } do |f| -%>
+		Ditt namn *
+		<%= f.text_field :name, class: 'form-control' %>
 		<%= f.fields_for :placements do |b| %>
 			<%= b.hidden_field :position, value: b.object.position %>
-			<div class="row form-group">
-				<p>Placering #<%= b.object.position %></p>
-				<p>
-					<%= b.collection_select :contestant_id, Contest.order("created_at").last.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" },
-									{ class: 'form-control' } %>
-				</p>
-			</div>
+			Placering #<%= b.object.position %>
+			<%= b.collection_select :contestant_id, Contest.order("created_at").last.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" } %>
 		<% end %>
-		<div class="row form-group">
-			<%= f.submit "Skicka in ditt svar", class: "btn btn-default"%>
-		</div>
-		<% end %>
-	<% else %>
-		<p>Tävlingen är avslutad.</p>
+		<%= f.submit "Skicka in ditt svar", class: "submit"%>
 	<% end %>
+<% else %>
+	Tävlingen är avslutad.
+<% end %>

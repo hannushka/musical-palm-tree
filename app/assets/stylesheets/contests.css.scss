@@ -1,0 +1,29 @@
+.show-contestants {
+    font: 1.2rem "roboto", sans-serif;
+    .contestant {
+        margin: 0.5rem 0;
+    }
+}
+
+.new-contest-form, .edit-contest-form { 
+    .contestant {
+        display: flex;
+        margin: 0.5rem 0;
+        background: #ccc;
+        padding: 1rem 0.5rem;
+        border-radius: 4px;
+        * {
+            margin: 0 0.2rem;
+        }
+        .input-field {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            margin: 0 0.5rem;
+            label {
+                font-weight: bold;
+                font-size: 0.7rem;
+            }
+        }
+    }
+}

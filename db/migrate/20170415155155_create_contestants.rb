@@ -1,4 +1,4 @@
-class CreateContestants < ActiveRecord::Migration
+class CreateContestants < ActiveRecord::Migration[5.2]
   def change
     create_table :contestants do |t|
       t.integer :start_nbr

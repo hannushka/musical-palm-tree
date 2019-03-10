@@ -1,17 +1,19 @@
-<div class="row">
-	<h1>Visa låtarna administration</h1>
-</div>
+<h1>Visa låtarna administration</h1>
 
 <%= render "layouts/nav" %>
 
-<div class="row">
+<div class="show-contestants">
 	<% @contest.contestants.order('start_nbr ASC').each do |c| %>
+<<<<<<< HEAD
+		<div class="contestant">
+			<%= c.start_nbr %>. <%= c.complete_title %>
+		</div>
+=======
 	<p>
 		Låt #<%= c.start_nbr %> <%= c.complete_title %>
 	</p>
+>>>>>>> eefc45b... Smaller display changes
 	<% end %>
 </div>
 
-<div class="row">
-	<p><%= link_to "Ändra låtarna", edit_contest_path, class: "btn btn-default" %></p>
-</div>
+<%= link_to "← Ändra låtarna", edit_contest_path%>

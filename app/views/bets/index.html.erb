@@ -1,45 +1,35 @@
-<div class="row">
-	<h1>Visa svaren</h1>
-</div>
+<h1>Visa svaren</h1>
 
 <% if logged_in? %>
 	<%= render "layouts/nav" %>
 <% end %>
 
-<div class="row">
-	<p>
-	<%= if @contest.nil?
-		@text = "Det finns ingen tävling ännu."
+<%= if @contest.nil?
+	@text = "Det finns ingen tävling ännu."
+else
+	if !@contest.completed
+		@text = "Tävlingen har inte avslutats ännu."
 	else
-		if !@contest.completed
-			@text = "Tävlingen har inte avslutats ännu."
-		else
-			@text = "Du kan titta närmare på svaren genom att trycka på deltagarens namn i listan. Siffran inom parantes är den faktiska placeringen. "
-		end
-	end %>
-	</p>
-</div>
+		@text = "Du kan titta närmare på svaren genom att trycka på deltagarens namn i listan. Siffran inom parantes är den faktiska placeringen. "
+	end
+end %>
 
-<div class="row">
+<% counter = 1 %>
 <% @bets.each do |b| %>
-	<div class="bets">
-		<h3><%= b.name %>
-		<% if !b.result.nil? %>
-			<%= b.result %>
-			poäng
-		<% end %></h3>
-		<% if !b.result.nil? %>
+	<% if !b.result.nil? %>
+		<div class="bet">
+			<%= counter %>. <%= b.name %>, <%= b.result %> poäng
 			<div class="placements" style="display: none;">
 				<% b.placements.order('position ASC').each do |p| %>
-					<p>
-					#<%= p.position %>
-					<%= p.contestant.title %>
-					<%= p.contestant.country %>
-					(<%= p.contestant.position %>)
-					</p>
+					<div class="entry">
+						<%= p.position %>.
+						<%= p.contestant.title %>
+						<%= p.contestant.country %>
+						(<%= p.contestant.position %>)
+					</div>
 				<% end %>
 			</div>
-		<% end %>
-	</div>
+		</div>
+		<% counter += 1 %>
+	<% end %>
 <% end %>
-</div>

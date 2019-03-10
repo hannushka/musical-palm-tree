@@ -1,21 +1,11 @@
-<div class="row">
-	<h1>Logga in</h1>
-</div>
+<h1>Logga in</h1>
 
-<div class="row">
-	<%= form_for(:session, url: login_path) do |f| %>
-		<div class="form-group">
-		<%= f.label :email %>
-		<%= f.email_field :email, class: 'form-control' %>
-		</div>
+<%= form_for(:session, url: login_path) do |f| %>
+	<%= f.label :email %>
+	<%= f.email_field :email %>
 
-		<div class="form-group">
-		<%= f.label :lösenord %>
-		<%= f.password_field :password, class: 'form-control' %>
-		</div>
+	<%= f.label :lösenord %>
+	<%= f.password_field :password %>
 
-		<div class="form-group">
-		<%= f.submit "Logga in", class: "btn btn-default" %>
-		</div>
-	<% end %>
-</div>
+	<%= f.submit "Logga in", class: "submit" %>
+<% end %>
