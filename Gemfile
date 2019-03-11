@@ -15,7 +15,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt'
 
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3', "~> 1.3.6"
   gem 'byebug',  '9.0.0', platform: :mri
 end
 

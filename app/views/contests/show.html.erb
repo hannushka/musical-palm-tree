@@ -4,15 +4,9 @@
 
 <div class="show-contestants">
 	<% @contest.contestants.order('start_nbr ASC').each do |c| %>
-<<<<<<< HEAD
 		<div class="contestant">
 			<%= c.start_nbr %>. <%= c.complete_title %>
 		</div>
-=======
-	<p>
-		Låt #<%= c.start_nbr %> <%= c.complete_title %>
-	</p>
->>>>>>> eefc45b... Smaller display changes
 	<% end %>
 </div>
 
