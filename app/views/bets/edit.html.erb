@@ -1,19 +1,23 @@
-<h1>Skriv in ditt namn och låtarna!</h1>
+<div class="header">
+	<h1>Skriv in ditt namn och låtarna!</h1>
+</div>
 
-<% if !Contest.order("created_at").last.completed %>
-	<%= form_for @bet do |f| %>
-		Ditt namn *
-		<%= f.text_field :name %>
+<div class="content">
+	<% if !Contest.order("created_at").last.completed %>
+		<%= form_for @bet do |f| %>
+			Ditt namn *
+			<%= f.text_field :name %>
 
-		<% counter = 1 %>
-		<%= f.fields_for :placements do |b| %>
-			<%= b.hidden_field :position, value: counter %>
-			Placering #<%= counter %>
-			<%= b.collection_select :contestant_id, Contest.order("created_at").last.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" }, { class: 'form-control' } %>
-			<% counter += 1 %>
+			<% counter = 1 %>
+			<%= f.fields_for :placements do |b| %>
+				<%= b.hidden_field :position, value: counter %>
+				Placering #<%= counter %>
+				<%= b.collection_select :contestant_id, Contest.order("created_at").last.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" }, { class: 'form-control' } %>
+				<% counter += 1 %>
+			<% end %>
+			<%= f.submit "Skicka in ditt svar", class: "submit"%>
 		<% end %>
-		<%= f.submit "Skicka in ditt svar", class: "submit"%>
+	<% else %>
+		Tävlingen är avslutad.
 	<% end %>
-<% else %>
-	Tävlingen är avslutad.
-<% end %>
+</div>

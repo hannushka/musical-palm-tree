@@ -1,25 +1,29 @@
-<h1>Skapa ny tävling administration</h1>
+<div class="header">
+	<h1>Skapa tävling administration</h1>
+</div>
 
 <%= render "layouts/nav" %>
 
-<%= form_for @contest, html: { class: "new-contest-form" } do |f| %>
-	<%= f.hidden_field :completed, value: false %>
-	Namn på tävling *
-	<%= f.text_field :name %>
+<div class="content">
+	<%= form_for @contest, html: { class: "new-contest-form" } do |f| %>
+		<%= f.hidden_field :completed, value: false %>
+		Namn på tävling *
+		<%= f.text_field :name %>
 
-	<%= f.fields_for :contestants do |b| %>
-		<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
-		<div class="contestant"> 
-			Låt #<%= b.object.start_nbr %>
-			<div class="input-field">
-				<%= f.label :titel %>
-				<%= b.text_field :title %>
+		<%= f.fields_for :contestants do |b| %>
+			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
+			<div class="contestant"> 
+				Låt #<%= b.object.start_nbr %>
+				<div class="input-field">
+					<%= f.label :titel %>
+					<%= b.text_field :title %>
+				</div>
+				<div class="input-field">
+					<%= f.label :land %>
+					<%= b.text_field :country %>
+				</div>
 			</div>
-			<div class="input-field">
-				<%= f.label :land %>
-				<%= b.text_field :country %>
-			</div>
-		</div>
+		<% end %>
+		<%= f.submit "Spara tävling", class: "submit"%>
 	<% end %>
-	<%= f.submit "Spara tävling", class: "submit"%>
-<% end %>
+</div>

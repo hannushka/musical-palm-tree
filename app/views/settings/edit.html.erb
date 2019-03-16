@@ -1,9 +1,13 @@
-<h1>Inställningar</h1>
+<div class="header">
+	<h1>Inställningar</h1>
+</div>
 
 <%= render "layouts/nav" %>
 
-<%= form_for @setting, html: {class: 'form-horizontal'} do |f| -%>
-	Antalet bidrag per tävling
-	<%= f.text_field :nbr_contestants, class: 'form-control' %>
-	<%= f.submit "Spara", class: "submit"%>
-<% end %>
+<div class="content">
+	<%= form_for @setting, html: {class: 'form-horizontal'} do |f| -%>
+		Antalet bidrag per tävling
+		<%= f.text_field :nbr_contestants, class: 'form-control' %>
+		<%= f.submit "Spara", class: "submit"%>
+	<% end %>
+</div>

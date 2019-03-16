@@ -1,22 +1,26 @@
-<h1>Välkommen!</h1>
-
-Detta är en mycket ärofylld tävling som ger evig ära och en plats i schlagerhimlen och som har hållit
-på i ett antal år nu.
-
-<div class="box">
-	<b>Tävlingsregler:</b> Målet är att få så lite poäng som möjligt. Skriv placeringen i fältet och
-	lämna in till mig innan omröstningen har avslutats på TV. Om du skickar in för sent så är du inte
-	med. Efter att resultatet är presenterat på TV jämför jag era gissningar med de verkliga placeringarna.
-	Har ni gissat helt rätt på en låt blir det 0 poäng. Har ni gissat fel får ni lika många straffpoäng
-	som antalet placeringar ni har gissat fel. Exempel: En låt kommer sexa men du har tippat att den ska
-	komma tvåa, 6-2=4 straffpoäng. Den som får lägst poäng har vunnit. Sammanställningen och vem som
-	har vunnit kan du se via Facebook så snart det går efter finalen är färdig.
+<div class="header">
+	<h1>Välkommen!</h1>
 </div>
 
-<% if Contest.order("created_at").last.nil? %>
-	Ingen tävling finns skapad ännu.
-<% elsif Contest.order("created_at").last.completed %>
-	<%= link_to "Se resultatet →", bets_path, class: "bet-form-link" %>
-<% else %>
-	<%= link_to "Nog nu! Ta mig till tävlingen! →", new_bet_path, class: "bet-form-link" %>
-<% end %>
+<div class="content">
+	Detta är en mycket ärofylld tävling som ger evig ära och en plats i schlagerhimlen och som har hållit
+	på i ett antal år nu.
+
+	<div class="box">
+		<b>Tävlingsregler:</b> Målet är att få så lite poäng som möjligt. Skriv placeringen i fältet och
+		lämna in till mig innan omröstningen har avslutats på TV. Om du skickar in för sent så är du inte
+		med. Efter att resultatet är presenterat på TV jämför jag era gissningar med de verkliga placeringarna.
+		Har ni gissat helt rätt på en låt blir det 0 poäng. Har ni gissat fel får ni lika många straffpoäng
+		som antalet placeringar ni har gissat fel. Exempel: En låt kommer sexa men du har tippat att den ska
+		komma tvåa, 6-2=4 straffpoäng. Den som får lägst poäng har vunnit. Sammanställningen och vem som
+		har vunnit kan du se via Facebook så snart det går efter finalen är färdig.
+	</div>
+
+	<% if Contest.order("created_at").last.nil? %>
+		Ingen tävling finns skapad ännu.
+	<% elsif Contest.order("created_at").last.completed %>
+		<%= link_to "Se resultatet →", bets_path, class: "bet-form-link" %>
+	<% else %>
+		<%= link_to "Nog nu! Ta mig till tävlingen! →", new_bet_path, class: "bet-form-link" %>
+	<% end %>
+</div>

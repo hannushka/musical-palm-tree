@@ -1,15 +1,19 @@
-<h1>Rätt ordning</h1>
-När du skickar in rätt ordning så avslutas tävlingen och resultatet kommer finnas tillgängligt
+<div class="header">
+	<h1>Rätt ordning</h1>
+	När du skickar in rätt ordning så avslutas tävlingen och resultatet kommer finnas tillgängligt
+</div>
 
 <%= render "layouts/nav" %>
 
-<%= form_for @contest do |f| -%>
-	<%= f.hidden_field :completed, value: true %>
-		<%= f.fields_for :contestants do |b| %>
-			<div class="contestant">
-				Placering för #<%= b.object.start_nbr %> <%= b.object.complete_title %>
-				<%= b.select :position, @contest.contestants.collect {|p| [ p.start_nbr, p.start_nbr ] }, { prompt: "Välj placering" } %> 
-			</div>
-		<% end %>
-		<%= f.submit "Spara rätt ordning", class: "submit" %>
-<% end %>
+<div class="content">
+	<%= form_for @contest do |f| -%>
+		<%= f.hidden_field :completed, value: true %>
+			<%= f.fields_for :contestants do |b| %>
+				<div class="contestant">
+					Placering för #<%= b.object.start_nbr %> <%= b.object.complete_title %>
+					<%= b.select :position, @contest.contestants.collect {|p| [ p.start_nbr, p.start_nbr ] }, { prompt: "Välj placering" } %> 
+				</div>
+			<% end %>
+			<%= f.submit "Spara rätt ordning", class: "submit" %>
+	<% end %>
+</div>

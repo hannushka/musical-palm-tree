@@ -1,13 +1,17 @@
-<h1>Visa låtarna administration</h1>
+<div class="header">
+	<h1>Visa låtarna administration</h1>
+</div>
 
 <%= render "layouts/nav" %>
 
-<div class="show-contestants">
-	<% @contest.contestants.order('start_nbr ASC').each do |c| %>
-		<div class="contestant">
-			<%= c.start_nbr %>. <%= c.complete_title %>
-		</div>
-	<% end %>
-</div>
+<div class="content">
+	<div class="show-contestants">
+		<% @contest.contestants.order('start_nbr ASC').each do |c| %>
+			<div class="contestant">
+				<%= c.start_nbr %>. <%= c.complete_title %>
+			</div>
+		<% end %>
+	</div>
 
-<%= link_to "← Ändra låtarna", edit_contest_path%>
+	<%= link_to "← Ändra låtarna", edit_contest_path%>
+</div>

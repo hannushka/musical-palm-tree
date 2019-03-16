@@ -17,6 +17,7 @@
  @import url('https://fonts.googleapis.com/css?family=Roboto');
 
  // Device = phones (portrait)
+
  @media only screen and (max-width: 767px) and (orientation: portrait) {
     .nav {
         flex-direction: column;
@@ -24,15 +25,20 @@
             flex-grow: 1;
         }
     }
+
+    .content, .header {
+        padding: 0.5rem;
+    }
 }
 
 // Device = Tablets
+
 @media (max-width: 1024px) {
     .nav {
         font: 0.8rem "roboto", sans-serif;
     }
-    .wrapper {
-        width: 100%;
+    .content, .header {
+        padding: 0.5rem;
     }
     .bet-form-link {
         display: flex;
@@ -42,12 +48,15 @@
 }
   
 // Device = Laptops, Desktops
+
 @media (min-width: 1025px){
     .wrapper {
         width: 75%;
         margin: auto;
     }
 }
+
+// General
 
 html, a, select, input, .submit, .new-bet {
     font: 1.2rem "roboto", sans-serif;
@@ -65,6 +74,8 @@ a {
     font-weight: bold;
 }
 
+// Navbar
+
 ul.nav {
     display: flex;
     list-style-type: none;
@@ -79,6 +90,8 @@ ul.nav {
         color: white;
     }
 }
+
+// Forms 
 
 form {
     display: flex;
@@ -99,6 +112,8 @@ form {
         -webkit-appearance: none;
     }
 }
+
+// Boxes
 
 .alert-box {
     background-color: #acc6aa;
