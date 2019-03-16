@@ -7,8 +7,13 @@
 <div class="content">
 	<%= form_for @contest, html: { class: 'edit-contest-form' } do |f| -%>
 		<%= f.hidden_field :completed, value: false %>
+		
 		Namn på tävling *
 		<%= f.text_field :name %>
+
+		Sista chansen att skicka in bidrag
+		<%= f.datetime_field :end_date, value: @end_date %>
+
 		<%= f.fields_for :contestants do |b| %>
 			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
 			<div class="contestant"> 

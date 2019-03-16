@@ -16,6 +16,15 @@
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+
+  // Conditional rendering 
+
+  if ($('#contest_end_date').prop('type') !== 'datetime-local') {
+    $('.date-description').text("Sista chansen att skicka in bidrag (format exempel: 2019-03-16T22:00)")
+  }
+
+  // Event functions
+
   $('.expandable-sign').click(function() {
     if (window.matchMedia("(max-width: 767px)").matches) {
       $('.nav').toggle();
@@ -25,5 +34,5 @@ $(document).on('turbolinks:load', function() {
         $(".expandable-sign").text("-");
       }
     }
-  });   
+  }); 
 });

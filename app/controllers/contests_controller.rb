@@ -56,6 +56,6 @@ class ContestsController < ApplicationController
 
 	private
 	  def contest_params
-	    params.require(:contest).permit(:name, :completed, :id, contestants_attributes: [:start_nbr, :title, :country, :position, :id])
+	    params.require(:contest).permit(:name, :completed, :end_date, :id, contestants_attributes: [:start_nbr, :title, :country, :position, :id])
 		end
 end

@@ -12,17 +12,18 @@
 		med. Efter att resultatet är presenterat på TV jämför jag era gissningar med de verkliga placeringarna.
 		Har ni gissat helt rätt på en låt blir det 0 poäng. Har ni gissat fel får ni lika många straffpoäng
 		som antalet placeringar ni har gissat fel. Exempel: En låt kommer sexa men du har tippat att den ska
-		komma tvåa, 6-2=4 straffpoäng. Den som får lägst poäng har vunnit. Sammanställningen och vem som
-		har vunnit kan du se via Facebook så snart det går efter finalen är färdig.
+		komma tvåa, 6-2=4 straffpoäng. Den som får lägst poäng har vunnit.
 	</div>
 
-	<div style="text-align: center">
-		<% if Contest.order("created_at").last.nil? %>
+	<div class="contest-info">
+		<% if @current_contest.nil? %>
 			Ingen tävling finns skapad ännu.
-		<% elsif Contest.order("created_at").last.completed %>
+		<% elsif @current_contest.completed %>
 			<%= link_to "Se resultatet →", bets_path, class: "bet-form-link" %>
-		<% else %>
+		<% elsif !@current_contest.completed %>
 			<%= link_to "Nog nu! Ta mig till tävlingen! →", new_bet_path, class: "bet-form-link" %>
+		<% elsif @end_date_passed %>
+			Det är inte möjligt att delta i tävlingen längre. Resultatet är på väg! Titta tillbaka snart igen.
 		<% end %>
 	</div>
 </div>
