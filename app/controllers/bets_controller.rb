@@ -6,23 +6,25 @@ class BetsController < ApplicationController
 		(1..@contestants.all.count).each do |i|
 			@bet.placements.build(position: i)
 		end
+		@current_contest = Contest.order("created_at").last
+		@end_date_passed = DateTime.now.strftime("%Y-%m-%dT%H:%M") > DateTime.strptime(@current_contest.end_date, "%Y-%m-%dT%H:%M") 
 	end
 
 	def create
-		@bet = Contest.order("created_at").last.bets.new(bet_params)
-	    if @bet.save
-					flash[:success] = "Din tippning har skickats in."
-	        redirect_to @bet
-					return
-	    else
-				string = ""
-				@bet.errors.each do |attribute, msg|
-	      	 string = string + " "+ msg
-	    	end
-				flash.now[:danger]  = string.to_s
-				@contestants = Contest.order("created_at").last.contestants
-	      render 'new'
-	    end
+		@current_contest = Contest.order("created_at").last
+		@bet = @current_contest.bets.new(bet_params)
+		if @bet.save 
+			flash[:success] = "Din tippning har skickats in."
+			redirect_to @bet
+			return
+		end
+		string = ""
+		@bet.errors.each do |attribute, msg|
+				string = string + " "+ msg
+		end
+		flash.now[:danger]  = string.to_s
+		@contestants = @current_contest.contestants
+		render 'new'
 	end
 
 	def index
@@ -41,7 +43,13 @@ class BetsController < ApplicationController
 
   def edit
     @bet = Bet.find(params[:id])
-		@contestants = Contest.order("created_at").last.contestants
+		@current_contest = Contest.order("created_at").last
+		@contestants = @current_contest.contestants
+		if @current_contest.end_date.nil?
+			@end_date = ""
+		else
+			@end_date = @current_contest.end_date
+		end
   end
 
 	 def update
@@ -62,6 +70,7 @@ class BetsController < ApplicationController
 					string = string + " "+ msg
 			 end
 			 flash.now[:danger]  = string.to_s
+			 @current_contest = Contest.order("created_at").last
 			 @contestants = Contest.order("created_at").last.contestants
 			 render 'edit'
 		 end

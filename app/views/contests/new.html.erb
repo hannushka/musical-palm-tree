@@ -10,6 +10,9 @@
 		Namn på tävling *
 		<%= f.text_field :name %>
 
+		Sista chansen att skicka in bidrag
+		<%= f.datetime_field :end_date, value: Time.now.strftime("%Y-%m-%dT22:00") %>
+		
 		<%= f.fields_for :contestants do |b| %>
 			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
 			<div class="contestant"> 

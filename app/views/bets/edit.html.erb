@@ -3,7 +3,7 @@
 </div>
 
 <div class="content">
-	<% if !Contest.order("created_at").last.completed %>
+	<% if !@current_contest.completed || DateTime.now > @current_contest.end_date %>
 		<%= form_for @bet do |f| %>
 			Ditt namn *
 			<%= f.text_field :name %>
