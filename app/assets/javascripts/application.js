@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).on('turbolinks:load', function() {
+  $('.expandable-sign').click(function() {
+    if (window.matchMedia("(max-width: 767px)").matches) {
+      $('.nav').toggle();
+      if ($(".nav").css("display") === "none") {
+        $(".expandable-sign").text("+");
+      } else {
+        $(".expandable-sign").text("-");
+      }
+    }
+  });   
+});

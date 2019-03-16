@@ -1,10 +1,13 @@
-<ul class="nav">
-	<li><%= link_to "Skapa ny tävling", new_contest_path %></li>
-	<% if !Contest.order("created_at").last.nil? %>
-		<li><%= link_to "Visa låtarna", contest_path(Contest.order("created_at").last) %></li>
-		<li><%= link_to "Rätt ordning", edit_positions_contest_path(Contest.order("created_at").last) %></li>
-		<li><%= link_to "Visa svaren", bets_path %></li>
-	<% end %>
-	<li><%= link_to "Inställningar", edit_setting_path(Setting.order("created_at").first) %></li>
-	<li><%= link_to "Logga ut", logout_path, method: :delete %></li>
-</ul>
+<div class="navbar">
+	<ul class="nav">
+		<li class="nav-item"><%= link_to "Skapa ny tävling", new_contest_path %></li>
+		<% if !Contest.order("created_at").last.nil? %>
+			<li class="nav-item"><%= link_to "Visa låtarna", contest_path(Contest.order("created_at").last) %></li>
+			<li class="nav-item"><%= link_to "Rätt ordning", edit_positions_contest_path(Contest.order("created_at").last) %></li>
+			<li class="nav-item"><%= link_to "Visa svaren", bets_path %></li>
+		<% end %>
+		<li class="nav-item"><%= link_to "Inställningar", edit_setting_path(Setting.order("created_at").first) %></li>
+		<li class="nav-item"><%= link_to "Logga ut", logout_path, method: :delete %></li>
+	</ul>
+	<div class="expandable-sign">+</div>
+</div>

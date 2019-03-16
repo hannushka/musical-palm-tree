@@ -16,11 +16,13 @@
 		har vunnit kan du se via Facebook så snart det går efter finalen är färdig.
 	</div>
 
-	<% if Contest.order("created_at").last.nil? %>
-		Ingen tävling finns skapad ännu.
-	<% elsif Contest.order("created_at").last.completed %>
-		<%= link_to "Se resultatet →", bets_path, class: "bet-form-link" %>
-	<% else %>
-		<%= link_to "Nog nu! Ta mig till tävlingen! →", new_bet_path, class: "bet-form-link" %>
-	<% end %>
+	<div style="text-align: center">
+		<% if Contest.order("created_at").last.nil? %>
+			Ingen tävling finns skapad ännu.
+		<% elsif Contest.order("created_at").last.completed %>
+			<%= link_to "Se resultatet →", bets_path, class: "bet-form-link" %>
+		<% else %>
+			<%= link_to "Nog nu! Ta mig till tävlingen! →", new_bet_path, class: "bet-form-link" %>
+		<% end %>
+	</div>
 </div>
