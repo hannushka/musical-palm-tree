@@ -10,7 +10,11 @@
 <body>
 <div class="wrapper">
 	<% flash.each do |message_type, message| %>
-		<div class="alert-box">
+		<% if message_type == "danger" %>
+			<div class="danger-alert-box">
+		<% else %>
+			<div class="alert-box">
+		<% end %>
 			<%= message %>
 		</div>
 	<% end %>

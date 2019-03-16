@@ -189,10 +189,21 @@ form {
     }
 }
 
+.field_with_errors {
+    select, input {
+        border: 1px solid #ff7f7f;
+    }
+}
+
 // Boxes
 
 .alert-box {
     background-color: #acc6aa;
+    padding: 0.5rem;
+}
+
+.danger-alert-box {
+    background-color: #ff7f7f;
     padding: 0.5rem;
 }
 
