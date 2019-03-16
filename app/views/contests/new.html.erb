@@ -10,8 +10,8 @@
 		Namn på tävling *
 		<%= f.text_field :name %>
 
-		Sista chansen att skicka in bidrag
-		<%= f.datetime_field :end_date, value: Time.now.strftime("%Y-%m-%dT22:00") %>
+		<span class="date-description">Sista chansen att skicka in bidrag</span>
+		<%= f.datetime_field :end_date, value: Time.now.strftime("%Y-%m-%dT22:00"), pattern: "[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" %>
 		
 		<%= f.fields_for :contestants do |b| %>
 			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
