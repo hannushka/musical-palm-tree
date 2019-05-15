@@ -20,7 +20,7 @@ $(document).on('turbolinks:load', function() {
   // Conditional rendering 
 
   if ($('#contest_end_date').prop('type') !== 'datetime-local') {
-    $('.date-description').text("Sista chansen att skicka in bidrag (format exempel: 2019-03-16T22:00)")
+    $('.date-description').text("Sista chansen att skicka in bidrag (format exempel: yyyy-mm-ddThh:mm)")
   }
 
   // Event functions
