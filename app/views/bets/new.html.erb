@@ -1,6 +1,20 @@
 <div class="header">
 	<h1>Skriv in ditt namn och låtarna!</h1>
 </div>
+<div class="summary">
+	<div class="summary-header">
+		<div>Kvar att välja:</div>
+		<div class="expandable-sign">+</div>
+	</div>
+	<ul class="summary-content" id="summary-content-new-bets">
+		<li class="item">sdsfsd</li>
+		<li class="item">sdsfsd</li>
+		<li class="item">sdsfsd</li>
+		<li class="item">sdsfsd</li>
+		<li class="item">sdsfsd</li>
+		<li class="item">sdsfsd</li>
+	</ul>
+</div>
 <div class="content">
 	<% if @current_contest.completed || @end_date_passed %>
 		Tävlingen är avslutad.
@@ -11,7 +25,7 @@
 			<%= f.fields_for :placements do |b| %>
 				<%= b.hidden_field :position, value: b.object.position %>
 				Placering #<%= b.object.position %>
-				<%= b.collection_select :contestant_id, @current_contest.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt" } %>
+				<%= b.collection_select :contestant_id, @current_contest.contestants.order("country"), :id, :complete_title ,{ include_blank: "Välj låt"}, { class: "new-bet-select" }%>
 			<% end %>
 			<%= f.submit "Skicka in ditt svar", class: "submit"%>
 		<% end %>

@@ -1,0 +1,319 @@
+/* line 1, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/bets.css.scss */
+.bet {
+  margin: 0.5rem 0;
+  background-color: #71a0a5;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  border-radius: 4px;
+  font: 1.4rem "roboto", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+}
+/* line 11, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/bets.css.scss */
+.bet .placements {
+  font: 1rem "roboto", sans-serif;
+  font-weight: unset;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+}
+/* line 1, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/contests.css.scss */
+.show-contestants {
+  font: 1.2rem "roboto", sans-serif;
+}
+/* line 3, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/contests.css.scss */
+.show-contestants .contestant {
+  margin: 0.5rem 0;
+}
+
+/* line 9, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/contests.css.scss */
+.new-contest-form .contestant, .edit-contest-form .contestant {
+  display: flex;
+  margin: 0.5rem 0;
+  background: #ccc;
+  padding: 1rem 0.5rem;
+  border-radius: 4px;
+}
+/* line 15, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/contests.css.scss */
+.new-contest-form .contestant *, .edit-contest-form .contestant * {
+  margin: 0 0.2rem;
+}
+/* line 18, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/contests.css.scss */
+.new-contest-form .contestant .input-field, .edit-contest-form .contestant .input-field {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin: 0 0.5rem;
+}
+/* line 23, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/contests.css.scss */
+.new-contest-form .contestant .input-field label, .edit-contest-form .contestant .input-field label {
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+/*
+    * This is a manifest file that'll be compiled into application.css, which will include all the files
+    * listed below.
+    *
+    * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+    * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+    *
+    * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+    * compiled file so the styles you add here take precedence over styles defined in any styles
+    * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+    * file per style scope.
+    *
+
+
+ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+/* line 25, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+/* line 46, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+/* line 50, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+body {
+  line-height: 1.25;
+}
+
+/* line 53, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 56, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+blockquote, q {
+  quotes: none;
+}
+
+/* line 59, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* line 64, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@media only screen and (max-width: 767px) {
+  /* line 74, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .content, .header {
+    padding: 0.5rem;
+  }
+
+  /* line 77, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  ul.nav {
+    flex-direction: column;
+    max-width: fit-content;
+  }
+
+  /* line 81, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .nav-expandable-sign {
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+
+  /* line 86, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .contest-info {
+    text-align: center;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* line 94, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .content, .header {
+    padding: 0.5rem;
+  }
+
+  /* line 97, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .navbar a {
+    font-size: 0.8rem;
+  }
+
+  /* line 100, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+
+  /* line 103, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .bet-form-link {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+
+  /* line 108, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .expandable-sign {
+    display: none;
+  }
+}
+@media (min-width: 1025px) {
+  /* line 116, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .wrapper {
+    width: 75%;
+    margin: auto;
+  }
+
+  /* line 120, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .content, .header {
+    margin: 1rem 0;
+  }
+
+  /* line 123, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .nav-item {
+    margin: 0 0.5rem;
+  }
+
+  /* line 126, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+  .expandable-sign {
+    display: none;
+  }
+}
+/* line 133, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+html, a, select, input, .submit, .new-bet {
+  font: 1.2rem "roboto", sans-serif;
+}
+
+/* line 137, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+body {
+  margin: 0;
+  padding: 0;
+  background: #eee;
+}
+
+/* line 143, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+h1 {
+  font-size: 2rem;
+}
+
+/* line 147, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+a {
+  color: black;
+  font-weight: bold;
+}
+
+/* line 154, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.navbar, .summary {
+  display: flex;
+  background: #77628c;
+  border-radius: 4px;
+  padding: 0.5rem;
+  color: white;
+  font-weight: bold;
+  min-height: 1.2rem;
+  cursor: pointer;
+}
+/* line 163, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.navbar ul.nav, .summary ul.nav {
+  display: flex;
+  max-width: fit-content;
+  list-style-type: none;
+}
+/* line 167, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.navbar ul.nav li a, .summary ul.nav li a {
+  color: white;
+}
+
+/* line 173, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.summary {
+  flex-direction: column;
+}
+/* line 175, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.summary .summary-header {
+  display: flex;
+}
+/* line 178, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.summary .summary-content {
+  padding-left: 8px;
+  display: none;
+}
+
+/* line 184, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.expandable-sign {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+/* line 192, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+form {
+  display: flex;
+  flex-direction: column;
+}
+/* line 195, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+form select, form input, form .new-bet {
+  margin: 0.5rem 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  -webkit-appearance: none;
+  background: #fff;
+}
+/* line 206, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+form .submit {
+  background-color: #71a0a5;
+  border: none;
+  -webkit-appearance: none;
+}
+
+/* line 214, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.field_with_errors select, .field_with_errors input {
+  border: 1px solid #ff7f7f;
+}
+
+/* line 221, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.alert-box {
+  background-color: #acc6aa;
+  padding: 0.5rem;
+}
+
+/* line 226, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.danger-alert-box {
+  background-color: #ff7f7f;
+  padding: 0.5rem;
+}
+
+/* line 231, /Users/hannah/Projects/musical-palm-tree/app/assets/stylesheets/application.css.scss */
+.box {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  background: #77628c;
+  border-radius: 4px;
+  color: white;
+}

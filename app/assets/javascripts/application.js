@@ -25,13 +25,13 @@ $(document).on('turbolinks:load', function() {
 
   // Event functions
 
-  $('.expandable-sign').click(function() {
+  $('.nav-expandable-sign').click(function() {
     if (window.matchMedia("(max-width: 767px)").matches) {
       $('.nav').toggle();
       if ($(".nav").css("display") === "none") {
-        $(".expandable-sign").text("+");
+        $(".nav-expandable-sign").text("+");
       } else {
-        $(".expandable-sign").text("-");
+        $(".nav-expandable-sign").text("-");
       }
     }
   }); 
