@@ -35,6 +35,7 @@ class ContestsController < ApplicationController
 	def edit
 		@contest = Contest.find(params[:id])
 		@contestants = @contest.contestants
+		@end_date = @contest.end_date
 	end
 
  	def update
