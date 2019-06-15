@@ -11,8 +11,13 @@
 		Namn på tävling *
 		<%= f.text_field :name %>
 
+<<<<<<< HEAD
 		Sista chansen att skicka in bidrag
 		<%= f.datetime_field :end_date, value: @end_date %>
+=======
+		<span class="date-description">Sista chansen att skicka in bidrag</span>
+		<%= f.datetime_local_field :end_date, value: @contest.end_date %>
+>>>>>>> c99c315abc7ee3da5406d906204f30f23c04e480
 
 		<%= f.fields_for :contestants do |b| %>
 			<%= b.hidden_field :start_nbr, value: b.object.start_nbr %>
